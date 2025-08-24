@@ -2,30 +2,31 @@
 
 int main(void)
 {
-    int years;
     double investment;
-    float invest;
+    double invest;
+    int years;
+    double interest;
     int i;
-    float percent;
-    
-    printf("Initial investment: ");
+
+    printf("Enter initial investment: ");
     scanf("%lf", &investment);
-    
-    printf("Mounthly investment: ");
-    scanf("%f", &invest);
-    
-    printf("Intrest rate: ");
-    scanf("%f", &percent);
+
+    printf("Enter monthly investment: ");
+    scanf("%lf", &invest);
     
     printf("Years of compound: ");
     scanf("%d", &years);
     
-    percent = percent / 100 + 1;
-    
+    printf("Interest rate: ");
+    scanf("%lf", &interest);
+
+    interest = interest / 100 + 1;
+
     for (i = 0; i < years; i++)
     {
-        investment = percent * investment + (invest * 12);
+
+        investment = interest * (invest * 12 + investment);
     }
-    
-    printf("The total is: $ %lf", investment);
+
+    printf("$%.2lf\n", investment);
 }
